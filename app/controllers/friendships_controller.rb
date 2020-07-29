@@ -8,10 +8,12 @@ class FriendshipsController < ApplicationController
     @friendship.friend_id = params[:format]
     @friendship.user_id = current_user.id
     @friendship.confirmed = false
+    @friendship.save
     if @friendship.save
       redirect_to users_path, notice: 'Friend request sent.'
     else
       redirect_to users_path, notice: 'theres was a problem with your request'
+    end
   end
 
   def destroy
@@ -21,6 +23,7 @@ class FriendshipsController < ApplicationController
     redirect_to users_path, notice: 'Request rejected'
   else
     redirect_to users_path, notice: 'theres was a problem with your request'
+  end
   end
 
   def update
