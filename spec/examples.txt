@@ -1,0 +1,6 @@
+example_id                              | status | run_time        |
+--------------------------------------- | ------ | --------------- |
+./spec/models/friendship_spec.rb[1:1:1] | passed | 0.01593 seconds |
+./spec/models/friendship_spec.rb[1:1:2] | passed | 0.01448 seconds |
+./spec/models/friendship_spec.rb[1:2:1] | failed | 0.02005 seconds |
+./spec/models/friendship_spec.rb[1:2:2] | failed | 1.01 seconds    |
