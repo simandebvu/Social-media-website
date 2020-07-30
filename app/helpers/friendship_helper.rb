@@ -1,11 +1,11 @@
 module FriendshipHelper
-  def friend_request_btn(usr)
+  def friendship_status_btn(usr)
     if usr.friend_requests.any?(current_user)
-      link_to( 'pending friendship request', '#', class: 'btn')
+      link_to( 'Pending', '#', class: 'btn btn-info')
     elsif !(current_user.friend?(usr))
-      link_to('add this friend', user_friendships_path , method: :post)
+      link_to('Add', request_friendship_user_path(usr.id), method: :post, class: 'accept btn btn-secondary')
     else
-      link_to('delete as friend', destroy_friendship_path, method: :delete)
+      link_to 'Unfriend', unfriend_user_path(usr), method: :delete, class: 'profile-link btn btn-secondary'
     end
   end
 end
