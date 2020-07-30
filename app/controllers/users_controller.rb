@@ -10,5 +10,4 @@ class UsersController < ApplicationController
     @posts = @user.posts.ordered_by_most_recent
     @pending_requests = current_user.friend_requests
   end
-
 end

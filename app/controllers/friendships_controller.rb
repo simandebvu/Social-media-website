@@ -27,5 +27,4 @@ class FriendshipsController < ApplicationController
     current_user.confirm_friend(@user)
     redirect_to users_path, notice: 'You are now friends.'
   end
-  
 end
