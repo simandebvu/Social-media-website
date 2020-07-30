@@ -14,3 +14,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - User can now accept and reject friendship requests.
 - A button to invite user to friendship on users list page and on single user page.
 - Posts to be seen by friends only.
+- Refactored Posts 

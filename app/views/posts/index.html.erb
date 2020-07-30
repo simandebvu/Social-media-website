@@ -14,10 +14,6 @@
     Recent posts
   </h3>
   <ul class="posts">
-    <% @timeline_posts.each do |poste| %>
-      <% if current_user.friend?(poste.user) || current_user == poste.user %>
-        <%=  render poste %>
-      <% end %>
-    <% end %>
+    <%= render @timeline_posts %>
   </ul>
 </article>
