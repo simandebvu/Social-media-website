@@ -3,10 +3,6 @@ class FriendshipsController < ApplicationController
     @friends = current_user.friendships.all
   end
 
-  # def new
-  #   @friendship = Friendship.new
-  # end
-
   def create
     @friendship = current_user.friendships.build(friend_id: params[:id], confirmed: false)
     if @friendship.save
@@ -26,13 +22,10 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  # def update
-  #   @user = User.find(params[:format])
-  #   current_user.confirm_friend(user)
-  #   if @friendship.confirm_friend
-  #     redirect_to users_path, notice: 'Request accepted'
-  #   else
-  #     redirect_to users_path, notice: 'theres was a problem with your request'
-  #   end
-  # end
+  def accept
+    @user = User.find(params[:id])
+    current_user.confirm_friend(@user)
+    redirect_to users_path, notice: 'You are now friends.'
+  end
+  
 end

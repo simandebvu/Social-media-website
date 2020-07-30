@@ -21,13 +21,8 @@ class PostsController < ApplicationController
 
   def timeline_posts
     users = [current_user.id]
-    unless Friendship.find_by(user_id: current_user.id, confirmed: true).nil?
-      users << Friendship.find_by(user_id: current_user.id, confirmed: true).friend_id
-    end
-    unless Friendship.find_by(friend_id: current_user.id, confirmed: true).nil?
-      users << Friendship.find_by(friend_id: current_user.id, confirmed: true).user_id
-    end
-
+    users << Friendship.find_by(user_id: current_user.id, confirmed: true).friend_id unless Friendship.find_by(user_id: current_user.id, confirmed: true).nil?
+    users << Friendship.find_by(friend_id: current_user.id, confirmed: true).user_id unless Friendship.find_by(friend_id: current_user.id, confirmed: true).nil?
     @timeline_posts ||= Post.all.ordered_by_most_recent.where('user_id IN (?)', users)
   end
 
