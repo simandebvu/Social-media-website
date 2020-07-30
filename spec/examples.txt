@@ -1,6 +1,9 @@
 example_id                                    | status | run_time        |
 --------------------------------------------- | ------ | --------------- |
-./spec/features/authentication_spec.rb[1:1:1] | passed | 0.08158 seconds |
-./spec/features/authentication_spec.rb[1:2:1] | passed | 1.18 seconds    |
-./spec/models/friendship_spec.rb[1:1:1]       | passed | 0.03537 seconds |
-./spec/models/friendship_spec.rb[1:1:2]       | passed | 0.00472 seconds |
+./spec/features/authentication_spec.rb[1:1:1] | passed | 0.29799 seconds |
+./spec/features/authentication_spec.rb[1:2:1] | passed | 0.0388 seconds  |
+./spec/features/friendship_spec.rb[1:1]       | passed | 3.07 seconds    |
+./spec/features/friendship_spec.rb[1:2]       | passed | 6.16 seconds    |
+./spec/features/friendship_spec.rb[1:3]       | passed | 6.14 seconds    |
+./spec/models/friendship_spec.rb[1:1:1]       | passed | 0.00657 seconds |
+./spec/models/friendship_spec.rb[1:1:2]       | passed | 0.00606 seconds |
