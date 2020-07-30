@@ -20,3 +20,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Posts Controller#timeline_posts to also get posts from users friends and not just the user
 - Removed Code Comments (Cleaner Code)
 - Moved the accept friendship action to the friendship controller
+- DRY Principle in Posts Controller#timeline_posts
