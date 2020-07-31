@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Friendship, type: :model do
-  before :each do 
-    @sender = User.create(name: "brannigan", email: "zackleela@te.com", password: "password")
-    @receiver = User.create(name: "leela", email: "fryleela@te.com", password: "hayaa")
+  before :each do
+    @sender = User.create(name: 'brannigan', email: 'zackleela@te.com', password: 'password')
+    @receiver = User.create(name: 'leela', email: 'fryleela@te.com', password: 'hayaa')
   end
 
   describe 'associations' do
