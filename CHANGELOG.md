@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A button to invite user to friendship on users list page and on single user page.
 - Posts to be seen by friends only.
 - Friendship has many through relationship (Symmetric and Irreflexive)
+- Models and Friendship Tests
 
 ### Fixed
 - Posts Controller#timeline_posts to also get posts from users friends and not just the user
@@ -22,3 +23,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Moved the accept friendship action to the friendship controller
 - DRY Principle in Posts Controller#**timeline_posts**
 - Removed Iterable in Posts Controller#**timeline_posts** and used User Model
+- Associations with SQL query instead of processing objects in application memory
