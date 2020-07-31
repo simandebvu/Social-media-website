@@ -21,3 +21,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Code Comments (Cleaner Code)
 - Moved the accept friendship action to the friendship controller
 - DRY Principle in Posts Controller#**timeline_posts**
+- Removed Iterable in Posts Controller#**timeline_posts** and used User Model
