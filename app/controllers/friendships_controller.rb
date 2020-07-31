@@ -15,7 +15,7 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.find_by(params[:user_id], friend_id: params[:id])
     if @friendship
-      @friendship.destroy
+      @friendship.remove_duplicates
       redirect_to users_path, notice: 'Succesfully unfriended.'
     else
       redirect_to root_path, notice: 'You cant do this.'

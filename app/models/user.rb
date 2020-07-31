@@ -10,6 +10,12 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :confirmed_friendships, -> {where(confirmed: true)}, class_name: 'Friendship'
+  has_many :friends, through: :confirmed_friendships
+  has_many :incoming_friend_request, -> {where(confirmed: false)}, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :incoming, through: :incoming_friend_request, source: :user
+  has_many :pending_friend_request, -> {where(confirmed: false)}, class_name: 'Friendship', foreign_key: 'user_id'
+  has_many :pending, through: :pending_friend_request, source: :friend
 
   scope :all_except, ->(user) { where.not(id: user) }
 
@@ -30,9 +36,9 @@ class User < ApplicationRecord
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find { |friend| friend.user == user }
-    friendship.confirmed = true
-    friendship.save
+    friendship = incoming_friend_request.find_by(user_id: user)
+    friendship.update(confirmed: true)
+    Friendship.create(user: :friendship.friend, friend: :friendship.user, confirmed: true)
   end
 
   def friend?(user)
