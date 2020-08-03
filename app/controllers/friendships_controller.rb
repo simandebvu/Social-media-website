@@ -25,12 +25,12 @@ class FriendshipsController < ApplicationController
   def reject
     @friendship = current_user.incoming_friendships.find_by(user_id: params[:id])
     @friendship.destroy
-    redirect_to users_path, notice: "Rejected request"
-  end  
-  
+    redirect_to users_path, notice: 'Rejected request'
+  end
+
   def cancel
     @friendship = current_user.incoming_friendships.find_by(user_id: params[:id])
     @friendship.destroy
-    redirect_to users_path, notice: "Cancelled request"
+    redirect_to users_path, notice: 'Cancelled request'
   end
 end

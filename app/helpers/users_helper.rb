@@ -6,7 +6,7 @@ module UsersHelper
   def confirm_friendship_btn(usr)
     if current_user.pending_request_with usr
       confirm_btn(usr)
-    elsif current_user.friend? usr 
+    elsif current_user.friend? usr
       link_to 'Unfriend', unfriend_user_path(usr), method: :delete, class: 'profile-link btn btn-secondary'
     elsif current_user.sent_request?(usr)
       link_to('Cancel', cancel_user_path(usr), method: :delete, class: 'btn btn-secondary')

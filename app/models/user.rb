@@ -17,7 +17,6 @@ class User < ApplicationRecord
   has_many :incoming_friendships, -> { where confirmed: false }, class_name: 'Friendship', foreign_key: 'friend_id'
   has_many :incoming_friends, through: :incoming_friendships, source: :user
 
-
   scope :all_except, ->(user) { where.not(id: user) }
 
   def friend?(user)
