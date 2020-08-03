@@ -59,6 +59,17 @@ To have this app on your pc, you need to:
 * and finally, you can test it in the console by running
   - ```$ rails console --sandbox```
   
+  ## IMPORTANT
+
+** We used the Figaro gem to store credentials for use with POSTGRES. Therefore, we used SECRET KEYS stored in environment variables on my development and production servers.**
+
+- So if you have postgres credentials create a file an application.yml file inside config/ and put this your credentials in it like showing bellow:
+
+```ruby
+DB_USERNAME: your_postgres_username
+DB_PASSWORD: your_postgres_password
+```
+  
 <!-- AUTOMATED TEST -->
 ### Automated Test
 
