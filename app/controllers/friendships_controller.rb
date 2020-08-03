@@ -22,9 +22,15 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  def accept
-    @friendship = Friendship.find_by(params[:user_id], friend_id: params[:id])
-    @friendship.confirm_friend
-    redirect_to users_path, notice: 'You are now friends.'
+  def reject
+    @friendship = current_user.incoming_friendships.find_by(user_id: params[:id])
+    @friendship.destroy
+    redirect_to users_path, notice: "Rejected request"
+  end  
+  
+  def cancel
+    @friendship = current_user.incoming_friendships.find_by(user_id: params[:id])
+    @friendship.destroy
+    redirect_to users_path, notice: "Cancelled request"
   end
 end
