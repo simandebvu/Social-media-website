@@ -69,8 +69,6 @@ To have this app on your pc, you need to:
 DB_USERNAME: your_postgres_username
 DB_PASSWORD: your_postgres_password
 ```
-
-  
 <!-- AUTOMATED TEST -->
 ### Automated Test
 
