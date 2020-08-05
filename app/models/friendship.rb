@@ -8,9 +8,9 @@ class Friendship < ApplicationRecord
   validate :self_friendship
 
   def self_friendship
-    errors.add(:friend_id, "You are already your own friend!") if user_id == friend_id
+    errors.add(:friend_id, 'You are already your own friend!') if user_id == friend_id
   end
-  
+
   def remove_duplicates
     inverse = Friendship.find_by(user_id: friend, friend_id: user)
     destroy
