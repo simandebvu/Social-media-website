@@ -13,24 +13,20 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = Friendship.find_by(params[:user_id], friend_id: params[:id])
-    if @friendship
-      @friendship.destroy
-      redirect_to users_path, notice: 'Succesfully unfriended.'
-    else
-      redirect_to root_path, notice: 'You cant do this.'
-    end
+    @friendship = current_user.confirmed_friendships.find_by(friend_id: params[:id])
+    @friendship.remove_duplicates
+    redirect_to users_path, notice: 'Succesfully unfriended.'
   end
 
   def reject
     @friendship = current_user.incoming_friendships.find_by(user_id: params[:id])
     @friendship.destroy
-    redirect_to users_path, notice: 'Rejected request'
+    redirect_to users_path, notice: 'Rejected request. We wont tell if you wont.'
   end
 
   def cancel
-    @friendship = current_user.incoming_friendships.find_by(user_id: params[:id])
+    @friendship = current_user.pending_friendships.find_by(friend_id: params[:id])
     @friendship.destroy
-    redirect_to users_path, notice: 'Cancelled request'
+    redirect_to users_path, notice: 'Phew ! Cancelled request.'
   end
 end

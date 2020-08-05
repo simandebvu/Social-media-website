@@ -24,3 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - DRY Principle in Posts Controller#**timeline_posts**
 - Removed Iterable in Posts Controller#**timeline_posts** and used User Model
 - Associations with SQL query instead of processing objects in application memory
+- Removed printing from the code
+- Removed logic from users/show view
+- No more duplication on friend request cycle

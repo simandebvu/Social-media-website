@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -32,14 +32,12 @@ class User < ApplicationRecord
   end
 
   def sent_request?(usr)
-    incoming_friends.include? usr
+    pending_friends.include? usr
   end
 
   def confirm_friend(usr)
     friendship = incoming_friendships.find_by(user_id: usr)
     friendship.update(confirmed: true)
-    print(friendship.valid?)
-    print(friendship.errors.full_messages)
     Friendship.create(friend: friendship.user,
                       user: friendship.friend,
                       confirmed: true)
