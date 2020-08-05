@@ -2,7 +2,7 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/simandebvu/private-events">
+  <a href="https://github.com/ricardo123321/Social-media-website">
     <img src="rails-image.jpg" alt="Logo" width="80" height="80">
   </a>
 
@@ -20,7 +20,7 @@
   </p>
 </p>
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app-screenshot.gif)
 
 ## Built With
 
@@ -33,7 +33,7 @@
 
 ## Live Demo
 
-[Live Demo Link](#)
+[Live Demo Link](https://socialscalfold.herokuapp.com/)
 
 
 <!-- INSTALLATION -->
@@ -61,7 +61,7 @@ To have this app on your pc, you need to:
   
   ## IMPORTANT
 
-** We used the Figaro gem to store credentials for use with POSTGRES. Therefore, we used SECRET KEYS stored in environment variables on my development and production servers.**
+** We used the Figaro gem to store credentials for use with POSTGRES. Therefore, we used SECRET KEYS stored in environment variables on our development and production servers.**
 
 - So if you have postgres credentials create a file an application.yml file inside config/ and put this your credentials in it like showing bellow:
 
