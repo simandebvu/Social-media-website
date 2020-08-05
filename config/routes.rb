@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
   root 'posts#index'
-  get 'friendships/new'
-  get 'friendships/create'
 
   devise_for :users
 
   resources :users, only: [:index, :show] do
     resources :friendships, only: [:index]
     member do
-      put 'accept', to: 'friendships#accept'
+      put 'accept', to: 'users#accept'
       post 'request_friendship', to: 'friendships#create'
       delete 'unfriend', to: 'friendships#destroy'
+      delete 'cancel', to: 'friendships#cancel'
+      delete 'reject', to: 'friendships#reject'
     end
   end
   

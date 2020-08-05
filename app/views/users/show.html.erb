@@ -1,10 +1,6 @@
-<% @pending_requests.each do |p| %>
-  <% if @user == current_user %>
-  <%= p.name %> sent you a friend request.
-  <%= confirm_btn(p) %>
-  <% end %>
-<% end %>
+<% if @user != current_user %>
 <%= confirm_friendship_btn(@user) %>
+<% end %>
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
   <article class="timeline">
